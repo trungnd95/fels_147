@@ -12,4 +12,25 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+// === Header style ====//
+.header_template {
+  padding-bottom : 20px;
+ nav {
+   background-image : linear-gradient(to bottom,#fff 0,#f8f8f8 100%);
+   padding-bottom: 30px;
+ }
+}
+
+nav.navbar-menu {
+
+}
+
+footer {
+  border-top: 2px solid #bdc3c7;
+  padding: 20px;
+  background-image : linear-gradient(to bottom,#fff 0,#f8f8f8 100%);
+}
