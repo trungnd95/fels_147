@@ -1,6 +1,8 @@
 <%=content_for :title do%>
   <%@user.name%>
 <%end%>
+
+<%= image_tag @user.avatar.url if @user.avatar? %>
 <p>
   <strong><%= t "userAttr.name" %></strong>
   <%= @user.name %>
@@ -9,5 +11,5 @@
   <strong><%= t "userAttr.email" %></strong>
   <%= @user.email %>
 </p>
-<%= link_to t("userLink.edit"), "#" %> |
+<%= link_to t("userLink.edit"), edit_user_path(@user) %>
 <%= link_to t("userLink.back"), users_path %>
