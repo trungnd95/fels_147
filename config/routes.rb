@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, except: [:create, :new, :show]
   end
+  get "sessions/new"
+  get    "login"  =>  "sessions#new"
+  post   "login"  =>  "sessions#create"
+  delete "logout" =>  "sessions#destroy"
 end

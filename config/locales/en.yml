@@ -1,19 +1,26 @@
 en:
+  flash:
+    errorEmailPassword: "Invalid email/password combination"
+  session:
+    remember: " Remember me on this computer"
   userAttr:
     name: "Name"
     email: "Email"
     password: "Password"
     passwordDigest: "Password Digest"
   userLink:
+    login: "Log in"
     zero: "have no user"
     list: "Listing User"
     show: "Show"
     newUser: "New User"
     create: "Create my account"
-    signin: "Sign in"
     signup: "Sign up"
+    Logout: "Log out"
     edit: "Edit"
     back: "Back"
+    profile: "Profile"
+    settings: "Settings"
   message:
     success:
       create_user: "Welcome to Framgia E-learning"
@@ -55,6 +62,3 @@ en:
       title: "Home page"
     about:
       title: "About page"
-
-
-
