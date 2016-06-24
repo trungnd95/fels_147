@@ -20,4 +20,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  page:
+    master:
+      header:
+        title: "Fr E-learning System"
+      menu:
+        home: "Home"
+        courses: "Courses"
+        about: "About"
+        signup: "Sign up"
+        signin: "Sign in"
+      footer:
+        content: "Framgia@2016|Design by TT Team"
+    home:
+      title: "Home page"
+    about:
+      title: "About page"
+
+
