@@ -1,0 +1,14 @@
+<%=content_for :title do%>
+  <%@user.name%>
+<%end%>
+<p>
+  <strong><%= t "userAttr.name" %></strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong><%= t "userAttr.email" %></strong>
+  <%= @user.email %>
+</p>
+<%= link_to t("userLink.edit"), "#" %> |
+<%= link_to t("userLink.back"), users_path %>
+
