@@ -1,0 +1,41 @@
+<%= content_for :title do %>
+  <title><%= t "page.admin.categories.title" %></title>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.admin.categories.page_title" %>
+<% end %>
+
+<div class="admin_categories">
+  <table class="categories table table-hover table-bordered">
+    <thead>
+      <tr class="info">
+        <th><%= t "page.admin.categories.table.th.stt" %></th>
+        <th><%= t "page.admin.categories.table.th.name" %></th>
+        <th><%= t "page.admin.categories.table.th.description" %></th>
+        <th><%= t "page.admin.categories.table.th.number_of_words" %></th>
+        <th><%= t "page.admin.categories.table.th.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%  if @categories.size > 0 %>
+        <% @categories.each_with_index do |category, index| %>
+          <tr>
+            <td><%= index %></td>
+            <td><%= category.name %></td>
+            <td><%= truncate(category.description, length: 30) %></td>
+            <td><%= category.words.count %></td>
+            <td>
+              <%= link_to "Edit", edit_admin_category_path(category) %> |
+              <%= link_to "Delete", admin_category_path(category), method: :delete,
+                confirm: t("page.admin.confirm"), remote: true %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr><td><%= t "page.admin.categories.table.no_content" %></td></tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @users %>
+</div>

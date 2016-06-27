@@ -26,6 +26,7 @@ en:
       create_user: "Welcome to Framgia E-learning"
   page:
     admin:
+      confirm: "Are you sure?"
       header:
         title: "Admin Panel"
       menu:
@@ -47,6 +48,17 @@ en:
               email: "Email"
               number_of_lessons: "Number Of Lessons"
               number_of_categories: "Number Of Categories"
+      categories:
+        title: "Admin-Categories"
+        page_title: "Manage Categories"
+        table:
+          no_content: "No category was found"
+          th:
+            stt: "STT"
+            name: "Name"
+            description: "Short Description"
+            number_of_words: "Number Of Words"
+            action: "Action"
     master:
       header:
         title: "Fr E-learning System"
