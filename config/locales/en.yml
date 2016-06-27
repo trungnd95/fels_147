@@ -32,6 +32,7 @@ en:
       plsLogin: "Please log in"
   page:
     admin:
+      admin: "Admin"
       action:
         add: "Add"
         edit: "Edit"
@@ -71,6 +72,9 @@ en:
           success: "Category was successfully created"
         add:
           add_new: "Add New Category"
+        delete:
+          success: "Delete successfully!!"
+          danger: "Some thing went wrong"
         table:
           no_content: "No category was found"
           th:

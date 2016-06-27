@@ -55,6 +55,18 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @category.destroy
+    respond_to do |format|
+      format.html do
+        redirect_to admin_categories_path,
+         success: t("page.admin.categories.delete.success")
+      end
+      format.json {head :nocontent}
+      format.js
+    end
+  end
+
   private
   def category_params
     params.require(:category).permit :name, :description

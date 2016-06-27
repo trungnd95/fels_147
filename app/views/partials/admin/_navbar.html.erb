@@ -1,28 +1,41 @@
-<ul class="sidebar-menu">
-  <li class="treeview">
-    <%= link_to("#") do %>
-      <i class="fa fa-users" aria-hidden="true"></i>
-      <%= t "page.admin.menu.users" %>
-    <% end %>
-  </li>
-  <li class="treeview">
-    <%= link_to("#") do %>
-      <i class="fa fa-book" aria-hidden="true"></i>
-      <%= t "page.admin.menu.category.index" %>
-    <% end %>
-    <ul class="treeview-menu">
-        <li>
-          <%= link_to("#") do %>
-            <i class="fa fa-list" aria-hidden="true"></i>
-            <%= t "page.admin.menu.category.list" %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to("#") do %>
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            <%= t "page.admin.menu.category.add" %>
-          <% end %>
-        </li>
+<div class="nav-side-menu">
+  <div class="brand"><%= t "page.admin.admin" %></div>
+  <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+  <div class="menu-list">
+
+    <ul id="menu-content" class="menu-content collapse out">
+      <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+        <%= link_to admin_users_path  do %>
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <%= t "page.admin.menu.users" %>
+        <% end %>
+      </li>
+
+      <li data-toggle="collapse" data-target="#service" class="collapsed">
+        <%= link_to admin_categories_path do %>
+          <i class="fa fa-indent" aria-hidden="true"></i>
+          <%= t "page.admin.menu.category.index" %>
+          <span class="arrow"></span>
+        <% end %>
+      </li>
+
+      <ul class="sub-menu collapse" id="service">
+        <li><%= t "page.admin.menu.category.list" %></li>
+        <li><%= t "page.admin.menu.category.add" %></li>
+      </ul>
+
+
+      <li data-toggle="collapse" data-target="#new" class="collapsed">
+        <%= link_to("#") do %>
+          <i class="fa fa-file-word-o" aria-hidden="true"></i>
+          <%= t "page.admin.menu.word.index" %>
+          <span class="arrow"></span>
+        <% end %>
+      </li>
+      <ul class="sub-menu collapse" id="new">
+        <li><%= t "page.admin.menu.word.add" %></li>
+      </ul>
     </ul>
-  </li>
-</ul>
+  </div>
+</div>
