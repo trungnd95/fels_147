@@ -18,6 +18,28 @@ en:
     success:
       create_user: "Welcome to Framgia E-learning"
   page:
+    admin:
+      header:
+        title: "Admin Panel"
+      menu:
+        users: "Manage Users"
+        category:
+          index: "Categories"
+          list: "List All Categories"
+          add: "Add Category"
+        word:
+          index: "Words"
+          add: "Add new word"
+      users:
+        title: "Admin-User"
+        page_title: "Manage Users"
+        table:
+            th:
+              stt: "STT"
+              name: "Name"
+              email: "Email"
+              number_of_lessons: "Number Of Lessons"
+              number_of_categories: "Number Of Categories"
     master:
       header:
         title: "Fr E-learning System"
@@ -33,5 +55,6 @@ en:
       title: "Home page"
     about:
       title: "About page"
+
 
 

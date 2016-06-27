@@ -9,6 +9,8 @@ gem "bcrypt-ruby", "3.1.2"
 gem "will_paginate"
 gem "bootstrap-will_paginate", "0.0.10"
 gem "font-awesome-rails"
+gem "faker", "1.4.2"
+gem "config"
 #gem "byebug"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= yield :title %>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="wrapper">
+      <%= render "partials/admin/header" %>
+      <div class="container-fluid" style="margin-bottom: 100px; min-height: 300px">
+        <div class="row">
+          <div class="col-md-3">
+              <%= render "partials/admin/navbar" %>
+          </div>
+          <div class="col-md-9">
+            <h2><%= yield :page_title %></h2>
+            <% flash.each do |message_type, message| %>
+              <div class="alert alert-<%= message_type %>"><%= message %></div>
+            <% end %>
+            <hr />
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+      <%= render "partials/footer" %>
+    </div>
+  </body>
+</html>
