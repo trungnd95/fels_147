@@ -1,0 +1,33 @@
+<%= content_for :title do %>
+  <title><%= t "page.admin.users.title" %></title>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.admin.users.page_title" %>
+<% end %>
+
+<div class="admin_users">
+  <table class="users table table-hover table-bordered">
+    <thead>
+      <tr class="info">
+        <th><%= t "page.admin.users.table.th.stt" %></th>
+        <th><%= t "page.admin.users.table.th.name" %></th>
+        <th><%= t "page.admin.users.table.th.email" %></th>
+        <th><%= t "page.admin.users.table.th.number_of_lessons" %></th>
+        <th><%= t "page.admin.users.table.th.number_of_categories" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each_with_index do |user, index| %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.lessons.count %></td>
+          <td><%= user.categories.distinct.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @users %>
+</div>
