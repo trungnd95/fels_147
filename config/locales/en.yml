@@ -63,6 +63,10 @@ en:
       categories:
         title: "Admin-Categories"
         page_title: "Manage Categories"
+        edit:
+          page_title: "Edit Category"
+          success: "This category was successfully edited!"
+          danger: "Some thing went wrong! "
         create:
           success: "Category was successfully created"
         add:

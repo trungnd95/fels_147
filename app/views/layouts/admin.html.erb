@@ -16,7 +16,7 @@
               <%= render "partials/admin/navbar" %>
           </div>
           <div class="col-md-9">
-            <h2><%= yield :page_title %></h2>
+            <h2 class="text-center"><%= yield :page_title %></h2>
             <% flash.each do |message_type, message| %>
               <div class="alert alert-<%= message_type %>"><%= message %></div>
             <% end %>
