@@ -1,0 +1,11 @@
+<%= content_tag_for(:tr, category) do %>
+  <td><%= category.id %></td>
+  <td><%= category.name %></td>
+  <td class="truncate"><%= category.description %></td>
+  <td><%= category.words.count %></td>
+  <td>
+    <%= link_to t("page.admin.action.edit"), edit_admin_category_path(category) %> |
+    <%= link_to t("page.admin.action.delete"), admin_category_path(category), method: :delete,
+      confirm: t("page.admin.confirm"), remote: true %>
+  </td>
+<% end %>

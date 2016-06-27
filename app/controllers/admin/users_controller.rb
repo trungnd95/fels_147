@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   layout "admin"
-  before_action :is_admin
+  before_action :check_admin
   def index
     @users = User.includes(:lessons, :categories).where("is_admin = ?", false)
       .paginate page: params[:page], per_page: Settings.per_page
@@ -11,8 +11,8 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-    def user_params
-      params.require(:user).permit :name, :email, :password, :avatar, :activated,
-        :confirmation_code
-    end
+  def user_params
+    params.require(:user).permit :name, :email, :password, :avatar, :activated,
+      :confirmation_code
+  end
 end

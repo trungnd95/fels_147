@@ -1,0 +1,6 @@
+<% if @category.new_record? %>
+  $('.ajax-send-error').removeClass('hidden');
+<% else %>
+  $('#categories').append('<%= escape_javascript(render @category) %>');
+  $('#<%= dom_id(@category) %>').effect('highlight');
+<% end %>
