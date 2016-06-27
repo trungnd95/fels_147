@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20160623225400) do
   end
 
   add_index "lessons", ["category_id"], name: "index_lessons_on_category_id"
-  add_index "lessons", ["user_id", "category_id"], name: "index_lessons_on_user_id_and_category_id"
   add_index "lessons", ["user_id"], name: "index_lessons_on_user_id"
 
   create_table "relationships", force: :cascade do |t|

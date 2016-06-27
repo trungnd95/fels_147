@@ -2,7 +2,7 @@
   <ul class="breadcrumbs nav navbar-nav">
     <li class="active">
       <i class="fa fa-home" aria-hidden="true"></i>
-      <%= t "page.master.menu.home" %>
+      <%= link_to t("page.master.menu.home")%>
     </li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
@@ -21,7 +21,7 @@
     <li class="signup">
       <%= link_to('#') do %>
         <i class="fa fa-registered" aria-hidden="true"></i>
-        <%= t "page.master.menu.signup" %>
+        <%= link_to t("page.master.menu.signup"), new_user_path %>
       <% end %>
     </li>
     <li class="sign-in">
