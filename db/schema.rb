@@ -80,15 +80,16 @@ ActiveRecord::Schema.define(version: 20160703112102) do
   add_index "word_answers", ["word_id"], name: "index_word_answers_on_word_id"
 
   create_table "word_lessons", force: :cascade do |t|
-    t.integer  "answer_id"
+    t.integer  "word_answer_id"
     t.integer  "lesson_id"
     t.integer  "word_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.boolean  "result"
   end
 
   add_index "word_lessons", ["lesson_id"], name: "index_word_lessons_on_lesson_id"
+  add_index "word_lessons", ["word_answer_id"], name: "index_word_lessons_on_word_answer_id"
   add_index "word_lessons", ["word_id"], name: "index_word_lessons_on_word_id"
 
   create_table "words", force: :cascade do |t|

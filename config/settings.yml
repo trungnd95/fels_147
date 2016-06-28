@@ -1,7 +1,12 @@
 per_page: 8
+
 filter_types:
   - "not_learn"
   - "learned"
   - "true_words"
   - "false_words"
   - "_all"
+
+number_words_per_lesson: 20
+number_words_min: 2
+word_size: 2
