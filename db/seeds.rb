@@ -25,6 +25,14 @@ User.create!(
     activated: true)
 end
 
+20.times do |n|
+  name = "Course #{n+1}"
+  description = "Description #{n+1}"
+  Category.create!(
+    name: name,
+    description: description)
+end
+
 users = User.all
 user  = users.first
 following = users[2..50]

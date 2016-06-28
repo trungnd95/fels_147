@@ -2,7 +2,7 @@
   <%= t "userLink.list" %>
 <% end %>
 <h1><%= t "userLink.list" %></h1>
-<table>
+<table class = "table table-striped">
   <thead>
     <tr>
       <th><%= t "user_attr.name" %></th>
@@ -21,4 +21,5 @@
   </tbody>
 </table>
 <br>
-<%= link_to t("userLink.newUser"), new_user_path %>
+<center><%= will_paginate %></center>
+
