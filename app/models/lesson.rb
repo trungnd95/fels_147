@@ -12,8 +12,9 @@ class Lesson < ActiveRecord::Base
     reject_if: lambda {|a| a[:word_id].blank?}, allow_destroy: true
 
   validate :word_min, on: :create
-
   before_update :change_is_completed
+  before_update :create_activity_learning
+  after_update :create_activity_learned
 
   def create_word
     self.words = if category.words.size >= Settings.word_size
@@ -32,8 +33,7 @@ class Lesson < ActiveRecord::Base
     errors.add :create,
       I18n.t("category.lesson.create_fail") if self.words.size < Settings.number_words_min
   end
-  after_update :create_activity_learned
-  before_update :create_activity_learning
+
 
   private
   def create_activity_learned
