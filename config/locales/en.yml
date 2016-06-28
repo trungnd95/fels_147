@@ -8,7 +8,9 @@ en:
     email: "Email"
     password: "Password"
     passwordDigest: "Password Digest"
+    avatarSize: "should be less than 5MB"
   userLink:
+    updated: "Profile updated"
     login: "Log in"
     zero: "have no user"
     list: "Listing User"
@@ -21,9 +23,12 @@ en:
     back: "Back"
     profile: "Profile"
     settings: "Settings"
+    updateProfile: "Update your profile"
+    saveChange: "Save changes"
   message:
     success:
       create_user: "Welcome to Framgia E-learning"
+      plsLogin: "Please log in"
   page:
     admin:
       confirm: "Are you sure?"

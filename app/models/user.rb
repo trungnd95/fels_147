@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
+  mount_uploader :avatar, PictureUploader
+  validate  :avatar_size
   has_many :active_relationships , class_name: "Relationship",
     foreign_key: "follower_id",
     dependent: :destroy
@@ -56,5 +58,11 @@ class User < ActiveRecord::Base
 
     def downcase_email
       self.email = email.downcase
+    end
+
+    def avatar_size
+      if avatar.size > 5.megabytes
+        errors.add :avatar, t("userAttr.avatarSize")
+      end
     end
 end
