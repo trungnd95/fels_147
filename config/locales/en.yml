@@ -3,7 +3,11 @@ en:
     name: "Name of category"
     desc: "Description"
     allcate: "All Categories"
-    start: "Start"
+    number_of_lesson: "Number of lesson"
+    lesson:
+      start: "Start"
+      create: "Create"
+      lesson_list: "Listing Lessons"
   relationship:
     unfollow: "Unfollow"
     follow: "Follow"
@@ -117,6 +121,7 @@ en:
         delete:
           success: "You was successfully deleted !!!"
           warning: "Word was in lessons. Not permit to destroy it !!"
+  category page:
     master:
       header:
         title: "Fr E-learning System"

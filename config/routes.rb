@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  resources :categories
   root "static_pages#home"
   get "about" => "static_pages#about"
   get "signup" => "users#new"
   namespace :admin do
     resources :users, except: [:create, :new, :show]
     resources :categories
+  end
+  resources :categories
+  resources :categories do
+    resources :lessons, except: [:index, :destroy, :edit]
   end
   resources :users
   resources :users do

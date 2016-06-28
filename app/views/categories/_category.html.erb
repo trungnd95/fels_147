@@ -1,0 +1,8 @@
+<tr>
+  <td><%= category.name %></td>
+  <td><%= category.description %></td>
+  <td><%= category.lessons.count %></td>
+  <td>
+    <%= link_to t("category.start"), category_path(category), class: "btn btn-primary" %>
+  </td>
+</tr>
