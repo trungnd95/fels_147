@@ -77,3 +77,10 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

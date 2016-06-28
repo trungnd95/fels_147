@@ -1,6 +1,7 @@
 en:
   flash:
     errorEmailPassword: "Invalid email/password combination"
+    errors: "Some thing invalid ! Add category failed !!!"
   session:
     remember: " Remember me on this computer"
   userAttr:
@@ -31,6 +32,12 @@ en:
       plsLogin: "Please log in"
   page:
     admin:
+      action:
+        add: "Add"
+        edit: "Edit"
+        delete: "Delete"
+        create: "Create"
+        cancel: "Cancel"
       confirm: "Are you sure?"
       header:
         title: "Admin Panel"
@@ -56,10 +63,14 @@ en:
       categories:
         title: "Admin-Categories"
         page_title: "Manage Categories"
+        create:
+          success: "Category was successfully created"
+        add:
+          add_new: "Add New Category"
         table:
           no_content: "No category was found"
           th:
-            stt: "STT"
+            stt: "ID"
             name: "Name"
             description: "Short Description"
             number_of_words: "Number Of Words"

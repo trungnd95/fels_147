@@ -3,9 +3,13 @@
 <% end %>
 
 <%= content_for :page_title do %>
-  <%= t "page.admin.categories.page_title" %>
+  <%= t "page.admin.categories.page_title" %> |
+  <button type="button" class="btn btn-primary" data-toggle="modal"
+    data-target="#addCategory" data-whatever="@fat">
+      <%= t "page.admin.action.add" %>
+  </button>
 <% end %>
-
+<span class="ajax-send-error hidden text-danger"><%= t "flash.errors" %></span>
 <div class="admin_categories">
   <table class="categories table table-hover table-bordered">
     <thead>
@@ -17,25 +21,42 @@
         <th><%= t "page.admin.categories.table.th.action" %></th>
       </tr>
     </thead>
-    <tbody>
-      <%  if @categories.size > 0 %>
-        <% @categories.each_with_index do |category, index| %>
-          <tr>
-            <td><%= index %></td>
-            <td><%= category.name %></td>
-            <td><%= truncate(category.description, length: 30) %></td>
-            <td><%= category.words.count %></td>
-            <td>
-              <%= link_to "Edit", edit_admin_category_path(category) %> |
-              <%= link_to "Delete", admin_category_path(category), method: :delete,
-                confirm: t("page.admin.confirm"), remote: true %>
-            </td>
-          </tr>
-        <% end %>
+    <tbody id="categories">
+      <% if @categories.size > 0 %>
+        <%= render @categories %>
       <% else %>
         <tr><td><%= t "page.admin.categories.table.no_content" %></td></tr>
       <% end %>
     </tbody>
   </table>
   <%= will_paginate @users %>
+</div>
+
+<div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel"><%= t "page.admin.categories.add.add_new" %></h4>
+      </div>
+      <%= form_for([:admin, Category.new], remote: true) do |f| %>
+      <div class="modal-body">
+          <div class="form-group">
+            <%= f.label :name, class: "label-control" %>
+            <%= f.text_field :name, class: "form-control name_category" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description, class: "label-control" %>
+            <%= f.text_area :description, class: "form-control description_category" %>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <%= t "page.admin.action.cancel" %>
+        </button>
+        <%= f.submit t("page.admin.action.create"), class: "submit_category btn btn-primary", style: "width : 12%" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
