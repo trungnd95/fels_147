@@ -1,14 +1,17 @@
 <%=content_for :title do%>
   <%@user.name%>
 <%end%>
-
+<%= render "follow_form" if logged_in? %>
+<section class="stats">
+  <%= render "shared/stats" %>
+</section>
 <%= image_tag @user.avatar.url if @user.avatar? %>
 <p>
-  <strong><%= t "userAttr.name" %></strong>
+  <strong><%= t "user_attr.name" %></strong>
   <%= @user.name %>
 </p>
 <p>
-  <strong><%= t "userAttr.email" %></strong>
+  <strong><%= t "user_attr.email" %></strong>
   <%= @user.email %>
 </p>
 <%= link_to t("userLink.edit"), edit_user_path(@user) %>

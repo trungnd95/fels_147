@@ -1,16 +1,22 @@
 en:
+  relationship:
+    unfollow: "Unfollow"
+    follow: "Follow"
+    followers: "followers"
+    following: "following"
   flash:
     errorEmailPassword: "Invalid email/password combination"
     errors: "Some thing invalid ! Add category failed !!!"
   session:
     remember: " Remember me on this computer"
-  userAttr:
+  user_attr:
     name: "Name"
     email: "Email"
     password: "Password"
     passwordDigest: "Password Digest"
     avatarSize: "should be less than 5MB"
   userLink:
+    viewprofile: "view my profile"
     updated: "Profile updated"
     login: "Log in"
     zero: "have no user"
