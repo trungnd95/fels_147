@@ -1,0 +1,11 @@
+<%= content_tag_for(:tr, word) do %>
+  <td><%= word.id %></td>
+  <td><%= word.native_word %></td>
+  <td><%= word.meaning %></td>
+  <td><%= word.category.name %></td>
+  <td>
+    <%= link_to t("page.admin.action.edit"), edit_admin_word_path(word) %> |
+    <%= link_to t("page.admin.action.delete"), admin_word_path(word), method: :delete,
+      confirm: t("page.admin.confirm"), remote: true %>
+  </td>
+<% end %>

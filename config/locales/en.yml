@@ -45,6 +45,9 @@ en:
         delete: "Delete"
         create: "Create"
         cancel: "Cancel"
+        reset: "Reset"
+        remove: "Remove"
+        save: "Save"
       confirm: "Are you sure?"
       header:
         title: "Admin Panel"
@@ -89,6 +92,21 @@ en:
             description: "Short Description"
             number_of_words: "Number Of Words"
             action: "Action"
+      words:
+        add_answer: "Add answer"
+        title: "Admin-Words"
+        page_title: "Manage Words"
+        table:
+          no_content: "No word was found!"
+          th:
+            stt: "ID"
+            native: "Native Word"
+            meaning: "Meaning"
+            action: "Action"
+            category_name: "Category"
+        add:
+          success: "You was successfully added !!!"
+          danger: "Some thing went wrong !!! Please re check!"
     master:
       header:
         title: "Fr E-learning System"
