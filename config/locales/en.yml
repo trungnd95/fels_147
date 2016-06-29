@@ -96,6 +96,10 @@ en:
         add_answer: "Add answer"
         title: "Admin-Words"
         page_title: "Manage Words"
+        edit:
+          title: "Edit word"
+          success: "You was successfully updated !!"
+          danger: "Some thing went wrong.! Please re check"
         table:
           no_content: "No word was found!"
           th:

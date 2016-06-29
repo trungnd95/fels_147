@@ -36,6 +36,27 @@ class Admin::WordsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @word.update_attributes word_params
+        format.html do
+          flash[:success] = t "page.admin.words.edit.success"
+          redirect_to admin_words_path
+        end
+        format.json{render @word, status: :ok}
+      else
+        format.html do
+          flash[:danger] = t "page.admin.words.edit.danger"
+          redirect_to :back
+        end
+        format.json{render @word.errors, status: :unprocessable_entity}
+      end
+    end
+  end
+
   private
   def load_word
     @word = Word.find_by id: params[:id]
@@ -46,7 +67,7 @@ class Admin::WordsController < ApplicationController
   end
 
   def word_params
-    params.require(:word).permit(:native_word, :meaning, :category_id,
-      word_answers_attributes: [:content, :is_correct, :word_id])
+    params.require(:word).permit(:id, :native_word, :meaning, :category_id,
+      word_answers_attributes: [:id, :content, :is_correct, :word_id])
   end
 end
