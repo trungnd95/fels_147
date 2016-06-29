@@ -7,3 +7,6 @@ jQuery ->
     console.log()
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+  $('form').on 'click', '.remove_fields', (event) ->
+    $(this).prev('input[type=hidden]').val(true)
+    $(this).parent().effect('highlight').fadeOut()
