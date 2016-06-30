@@ -84,7 +84,7 @@ input {
   text-overflow: ellipsis
 }
 
-h1.admin-page-title {
+h1.admin-page-title, h1.text-center {
   color: #044c79;
   text-transform: uppercase;
   font-family: "Great Vibes", cursive;
@@ -135,4 +135,14 @@ h1.admin-page-title {
 
 .remove_fields {
   margin-left: 15px;
+}
+
+input[name="word_type"] {
+  width: auto !important;
+  display: inline-block !important;
+  margin-left: 10px
+}
+
+div.radio-checkbox {
+  margin-top: 10px;
 }

@@ -1,1 +1,7 @@
 per_page: 8
+filter_types:
+  - "not_learn"
+  - "learned"
+  - "true_words"
+  - "false_words"
+  - "_all"

@@ -1,0 +1,8 @@
+<% @words.each_with_index do |word, index|%>
+  <tr>
+    <td><%= index %></td>
+    <td><%= word.native_word %></td>
+    <td><%= word.meaning %></td>
+    <td><%= word.category.name %></td>
+  </tr>
+<% end %>
