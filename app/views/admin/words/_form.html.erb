@@ -14,9 +14,9 @@
       {}, {class: "form-control"} %>
   </div>
   <div id ="answer_field">
-    <%= f.fields_for :word_answers do |builder| %>
+    <%= f.fields_for :word_answers do |answer_builder| %>
       <p>
-        <%= render "word_answer_fields", f: builder %>
+        <%= render "word_answer_fields", f: answer_builder %>
       </p>
     <% end %>
     <%= link_to_add_fields t("page.admin.words.add_answer"), f, :word_answers %>
