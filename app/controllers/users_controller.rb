@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show, :index, :edit, :update]
-  before_action :load_user, only: [:show, :edit, :update]
-  before_action :correct_user, only: [ :edit, :update]
+  before_action :load_user, only: [:show, :edit, :update, :correct_user]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
-    @users = User.all
+    @users = User.order("created_at DESC").paginate page: params[:page],
+      per_page: Settings.per_page
   end
 
   def show
