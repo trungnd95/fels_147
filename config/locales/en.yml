@@ -95,6 +95,7 @@ en:
             number_of_words: "Number Of Words"
             action: "Action"
       words:
+        answer: "Answer"
         add_answer: "Add answer"
         title: "Admin-Words"
         page_title: "Manage Words"
@@ -113,7 +114,9 @@ en:
         add:
           success: "You was successfully added !!!"
           danger: "Some thing went wrong !!! Please re check!"
-  category page:
+        delete:
+          success: "You was successfully deleted !!!"
+          warning: "Word was in lessons. Not permit to destroy it !!"
     master:
       header:
         title: "Fr E-learning System"

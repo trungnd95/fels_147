@@ -132,3 +132,7 @@ h1.admin-page-title {
 .save-word, .reset {
   width: 49%;
 }
+
+.remove_fields {
+  margin-left: 15px;
+}
