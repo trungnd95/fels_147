@@ -1,0 +1,32 @@
+<%= content_for :title do %>
+  <title><%= t "page.admin.words.title" %></title>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.admin.words.page_title" %> |
+  <%= link_to new_admin_word_path, class: "btn btn-primary" do %>
+    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+    <%= t "page.admin.action.add" %>
+  <% end %>
+<% end %>
+<div class="admin_categories">
+  <table class="words table table-hover table-bordered">
+    <thead>
+      <tr class="info">
+        <th><%= t "page.admin.words.table.th.stt" %></th>
+        <th><%= t "page.admin.words.table.th.native" %></th>
+        <th><%= t "page.admin.words.table.th.meaning" %></th>
+        <th><%= t "page.admin.words.table.th.category_name" %></th>
+        <th><%= t "page.admin.words.table.th.action" %></th>
+      </tr>
+    </thead>
+    <tbody id="words">
+      <% if @words.size > 0 %>
+        <%= render @words %>
+      <% else %>
+        <tr><td><%= t "page.admin.words.table.no_content" %></td></tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @words %>
+</div>
