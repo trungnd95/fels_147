@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
+
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = t "message.plsLogin"
+      redirect_to login_url
+    end
+  end
+
   private
   def check_admin
     if logged_in?
