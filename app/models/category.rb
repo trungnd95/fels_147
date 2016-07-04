@@ -5,4 +5,5 @@ class Category < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
+  scope  :load_users_involve, ->(current_user){where "users.id = ?", current_user.id}
 end

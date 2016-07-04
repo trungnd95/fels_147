@@ -44,8 +44,18 @@ en:
   message:
     success:
       create_user: "Welcome to Framgia E-learning"
-      plsLogin: "Please log in"
+    plsLogin: "Please log in"
   page:
+    front-end:
+      words:
+        index:
+          title: "List Words"
+          page_title: "List Words"
+          STT: "STT"
+          native_word : "Native Word"
+          meaning: "Meaning"
+          category: "Category"
+          choose_category: "Choose Category"
     admin:
       admin: "Admin"
       action:
@@ -54,6 +64,7 @@ en:
         delete: "Delete"
         create: "Create"
         cancel: "Cancel"
+        save: "Save"
       confirm: "Are you sure?"
       header:
         title: "Admin Panel"
