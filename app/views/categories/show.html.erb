@@ -1,0 +1,13 @@
+<% provide :title, @category.id %>
+<hr>
+
+<h2><%= t "category.lesson.lesson_list" %></h2>
+<% @lessons.each do |lesson| %>
+  <%= link_to lesson.id, [@category,lesson],
+    class: "btn btn-#{lesson.is_completed.nil? ? "primary" : "danger"}" %>
+<% end %>
+
+<h2><%= t "category.lesson.start" %></h2>
+<%= form_for [@category, @lesson] do |f| %>
+  <%= f.submit t("category.lesson.create"), class: "btn btn-primary" %>
+<% end %>

@@ -5,21 +5,10 @@
     <tr>
       <th><%= t "category.name" %></th>
       <th><%= t "category.desc" %></th>
+      <th><%= t "category.number_of_lesson" %></th>
     </tr>
   </thead>
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.description %></td>
-        <td>
-          <%= form_tag lessons_path, method: :post do %>
-            <%= hidden_field_tag "lesson[category_id]", category.id  %>
-            <%= submit_tag t("category.start"), class: "btn btn-primary" %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
+    <%= render @categories %>
   </tbody>
 </table>
 <%= will_paginate %>
