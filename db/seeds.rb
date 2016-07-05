@@ -12,7 +12,7 @@ User.create!(
   password_confirmation: "123456",
   is_admin: 1)
 
-99.times do |n|
+20.times do |n|
   name  = Faker::Name.name
   email = "FakeUser#{n+1}@railstutorial.org"
   password = "password"
@@ -25,7 +25,7 @@ User.create!(
     activated: true)
 end
 
-20.times do |n|
+5.times do |n|
   name = "Course #{n+1}"
   description = "Description #{n+1}"
   Category.create!(

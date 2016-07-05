@@ -1,13 +1,19 @@
 en:
+  submit: "Submit"
   category:
     name: "Name of category"
     desc: "Description"
     allcate: "All Categories"
     number_of_lesson: "Number of lesson"
     lesson:
+      create_success: "Create lesson success"
+      create_fail: "Create lesson fail"
       start: "Start"
       create: "Create"
       lesson_list: "Listing Lessons"
+      score: "Score"
+      save_success: "Lesson saved"
+      save_fail: "Lesson not saved"
   relationship:
     unfollow: "Unfollow"
     follow: "Follow"

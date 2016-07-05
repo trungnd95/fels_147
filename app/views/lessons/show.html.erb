@@ -1,0 +1,42 @@
+<% provide :title, t("category.lesson.start") %>
+<div class="row">
+  <aside class="col-md-4">
+    <section >
+      <h1>
+        <%= @lesson.category.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+<div class="row">
+  <section>
+    <% if @lesson.is_completed.present? %>
+      <%= t "category.lessons.score" %>
+      <%= @lesson.word_lessons.is_corrects.count %>/
+      <%= @lesson.words.count %>
+      <%= render "result" %>
+    <% else %>
+      <%= form_for @lesson do |f| %>
+        <%= f.hidden_field :is_completed, value: true %>
+        <%= f.fields_for :word_lessons do |build| %>
+          <div class="panel panel-default col-md-12">
+            <label><%= build.object.word.native_word %></label>
+            <div>
+              <div>
+                <% build.object.word.word_answers.each do |answer| %>
+                  <%= build.radio_button :word_answer_id, answer.id %>
+                  <%= answer.content %>
+                  <%= build.hidden_field :word_id %>
+                  <br/>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="col-md-2">
+          <%= f.submit t("submit"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+</div>
