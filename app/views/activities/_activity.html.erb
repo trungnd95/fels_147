@@ -1,0 +1,25 @@
+<div class="alert alert-dismissable">
+  <button type="button" class="close delete-notify-student" data-dismiss="alert" aria-hidden="true">×</button>
+  <input type="hidden" name="" value="116">
+  <input type="hidden" name="" value="12">
+  <li class="notify-item seen">
+    <%= link_to activity.user.name, activity.user %>
+    <% if activity.learned? %>
+      <span><%= t "page.front-end.activities.learned" %></span>
+      <%= link_to activity.load_lesson.id, activity.load_lesson %>
+      <span><%= t "page.front-end.activities.category" %></span>
+      <%= link_to activity.load_lesson.category.name,
+       activity.load_lesson.category %>
+    <% end %>
+    <% if activity.follow? %>
+      <span><%= t "page.front-end.activities.follow" %></span>
+      <%= link_to activity.load_user.name, activity.load_user %>
+    <% end %>
+    <% if activity.unfollow? %>
+      <span><%= t "page.front-end.activities.unfollow" %></span>
+      <%= link_to activity.load_user.name, activity.load_user%>
+    <% end %>
+    <%= time_ago_in_words(activity.created_at) %>
+    <span><%= t "page.front-end.activities.ago" %></span>
+  </li>
+</div>

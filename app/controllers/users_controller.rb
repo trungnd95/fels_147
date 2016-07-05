@@ -9,9 +9,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    if @user.nil?
-      redirect_to root_url
-    end
+    @activities = @user.activities.order_by_time.paginate page: params[:page],
+      per_page: Settings.per_page
   end
 
   def new
