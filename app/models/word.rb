@@ -16,9 +16,9 @@ class Word < ActiveRecord::Base
   scope :current_user_words, ->(category_id){where category_id: category_id}
   scope :learned, ->(ids){where id: ids}
   scope :true_words, ->(ids){joins(:word_lessons).where(words: {id: ids})
-    .where(word_lessons: {result: true})}
+    .merge(WordLesson.is_corrects)}
   scope :false_words, ->(ids){joins(:word_lessons).where(words: {id: ids})
-    .where(word_lessons: {result: false})}
+    .merge(WordLesson.is_fails)}
   scope :not_learn, ->(ids){where.not id: ids}
   scope :_all, ->ids{}
 end

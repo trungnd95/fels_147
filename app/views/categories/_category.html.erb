@@ -3,6 +3,9 @@
   <td><%= category.description %></td>
   <td><%= category.lessons.count %></td>
   <td>
-    <%= link_to t("category.start"), category_path(category), class: "btn btn-primary" %>
+    <%= link_to category_path(category), class: "btn btn-primary" do %>
+      <%= t("category.start") %>
+      <i class="fa fa-share" aria-hidden="true"></i>
+    <% end %>
   </td>
 </tr>

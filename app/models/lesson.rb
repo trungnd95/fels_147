@@ -8,6 +8,9 @@ class Lesson < ActiveRecord::Base
   has_many :word_answers, through: :word_lessons
   has_many :activities, dependent: :destroy
 
+  after_update :create_activity_learned
+  before_update :create_activity_learning
+
   accepts_nested_attributes_for :word_lessons,
     reject_if: lambda {|a| a[:word_id].blank?}, allow_destroy: true
 

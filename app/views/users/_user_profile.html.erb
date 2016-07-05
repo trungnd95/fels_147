@@ -1,0 +1,25 @@
+<div class="user_profile col-md-4">
+  <%= render "users/follow_form" if logged_in? %>
+  <%= image_tag @user.avatar.url, size: Settings.image.size if @user.avatar? %>
+  <div class="user_information">
+    <p>
+      <strong><%= t "user_attr.name" %></strong>
+      <%= @user.name %>
+    </p>
+    <p>
+      <strong><%= t "user_attr.email" %></strong>
+      <%= @user.email %>
+    </p>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+   </div>
+  <%= link_to users_path, class: "btn btn-default" do %>
+    <i class="fa fa-reply" aria-hidden="true"></i>
+    <%= t("userLink.back") %>
+  <% end %> |
+  <%= link_to edit_user_path(@user), class: "btn btn-warning" do %>
+    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    <%= t("userLink.edit") %>
+  <% end%>
+</div>

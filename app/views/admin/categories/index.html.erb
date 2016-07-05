@@ -6,6 +6,7 @@
   <%= t "page.admin.categories.page_title" %> |
   <button type="button" class="btn btn-primary" data-toggle="modal"
     data-target="#addCategory" data-whatever="@fat">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>
       <%= t "page.admin.action.add" %>
   </button>
 <% end %>
@@ -21,7 +22,7 @@
         <th><%= t "page.admin.categories.table.th.action" %></th>
       </tr>
     </thead>
-    <tbody id="categories">
+    <tbody id="categories" class="category_info">
       <% if @categories.size > 0 %>
         <%= render @categories %>
       <% else %>

@@ -6,4 +6,7 @@ class WordLesson < ActiveRecord::Base
   scope :is_corrects, -> do
     joins(:word_answer).where word_answers:{is_correct: true}
   end
+  scope :is_fails, -> do
+    joins(:word_answer).where word_answers:{is_correct: false}
+  end
 end
