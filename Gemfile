@@ -4,7 +4,6 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "4.2.6"
 # Use sqlite3 as the database for Active Record
-gem "sqlite3"
 gem "bcrypt-ruby", "3.1.2"
 gem "will_paginate"
 gem "bootstrap-will_paginate", "0.0.10"
@@ -13,10 +12,10 @@ gem "faker", "1.4.2"
 gem "config"
 #gem "byebug"
 # Use SCSS for stylesheets
-gem "sass-rails", "~> 5.0"
+gem "sass-rails"
 gem "bootstrap-sass", "3.2.0.0"
 # Use Uglifier as compressor for JavaScript assets
-gem "uglifier", ">= 1.3.0"
+gem "uglifier"
 # Use CoffeeScript for .coffee assets and views
 gem "coffee-rails", "~> 4.1.0"
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -27,6 +26,7 @@ gem "mini_magick",             "3.8.0"
 gem "fog",                     "1.36.0"
 # Use jquery as the JavaScript library
 gem "jquery-rails"
+gem "jquery-datatables-rails", github: "rweng/jquery-datatables-rails"
 gem "jquery-ui-rails"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem "turbolinks"
@@ -47,6 +47,15 @@ gem "sdoc", "~> 0.4.0", group: :doc
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug"
+end
+
+group :development, :test do
+  gem "sqlite3"
+end
+
+group :production do
+  gem "pg"
+  gem "rails_12factor"
 end
 
 group :development do

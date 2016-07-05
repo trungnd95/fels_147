@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <fieldset>
-      <%= f.label :content, t("page.admin.words.answer") %>
+      <%= f.label t("page.admin.words.answer") %>
       <%= f.text_field :content, style: "width : 60%; display : inline-block", class: "form-control" %>
-      <%= f.label :is_correct %>
-      <%= f.check_box :is_correct %>
+      <%= f.label "Is correct" %>
+      <%= f.check_box :is_correct, class: "word_answers_checkbox" %>
       <%= f.hidden_field :_destroy %>
       <%= f.label :_destroy, class: "btn btn-danger remove_fields" do %>
         <i class="fa fa-times" aria-hidden="true"></i>

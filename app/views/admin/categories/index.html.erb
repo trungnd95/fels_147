@@ -26,11 +26,11 @@
       <% if @categories.size > 0 %>
         <%= render @categories %>
       <% else %>
-        <tr><td><%= t "page.admin.categories.table.no_content" %></td></tr>
+        <tr class="category_no_content"><td><%= t "page.admin.categories.table.no_content" %></td></tr>
       <% end %>
     </tbody>
   </table>
-  <%= will_paginate @users %>
+  <%= will_paginate @categories %>
 </div>
 
 <div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">

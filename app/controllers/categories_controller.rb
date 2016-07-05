@@ -15,6 +15,6 @@ class CategoriesController < ApplicationController
 
   private
   def eager_loading_lessons
-    @category = Category.includes(:lessons).find_by id: params[:id]
+    @category = Category.includes(:lessons, :words).find_by id: params[:id]
   end
 end

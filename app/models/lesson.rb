@@ -9,14 +9,13 @@ class Lesson < ActiveRecord::Base
   has_many :activities, dependent: :destroy
 
   after_update :create_activity_learned
-  before_update :create_activity_learning
 
   accepts_nested_attributes_for :word_lessons,
     reject_if: lambda {|a| a[:word_id].blank?}, allow_destroy: true
 
   validate :word_min, on: :create
   before_update :change_is_completed
-  before_update :create_activity_learning
+  # before_update :create_activity_learning
   after_update :create_activity_learned
 
   def create_word
@@ -37,13 +36,12 @@ class Lesson < ActiveRecord::Base
       I18n.t("category.lesson.create_fail") if self.words.size < Settings.number_words_min
   end
 
-
-  private
   def create_activity_learned
     create_activity self.id, Settings.activity_type.learned, self.user.id
   end
 
-  def create_activity_learning
-    create_activity self.id, Settings.activity_type.learning, self.user.id
-  end
+  ##Create learning activity
+    # def create_activity_learning
+    #   create_activity self.id, Settings.activity_type.learning, self.user.id
+    # end
 end

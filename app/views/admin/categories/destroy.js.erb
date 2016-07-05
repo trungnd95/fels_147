@@ -1,1 +1,5 @@
-$('#<%= dom_id(@category) %>').effect('highlight').fadeOut();
+<% if @category.lessons.size > 0 %>
+  alert('<%= j @message %>')
+<% else %>
+  $('#<%= dom_id(@category) %>').effect('highlight').fadeOut()
+<% end %>

@@ -5,7 +5,7 @@
   <li class="notify-item seen">
     <%= link_to activity.user.name, activity.user %>
     <% if activity.learned? %>
-      <span><%= t "page.front-end.activities.learned" %></span>
+      <span><%= t "page.front-end.activities.learn" %></span>
       <%= link_to activity.load_lesson.id, activity.load_lesson %>
       <span><%= t "page.front-end.activities.category" %></span>
       <%= link_to activity.load_lesson.category.name,

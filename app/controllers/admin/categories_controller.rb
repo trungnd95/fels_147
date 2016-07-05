@@ -44,7 +44,7 @@ class Admin::CategoriesController < ApplicationController
         end
       else
         format.html do
-          redirect_to :back,
+          render :edit,
           danger: t("page.admin.categories.edit.danger")
         end
         format.json do
@@ -56,13 +56,18 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.destroy
     respond_to do |format|
-      format.html do
-        redirect_to admin_categories_path,
-         success: t("page.admin.categories.delete.success")
+      if @category.lessons.count > 0
+        @message = "Category exist lesson. Not allow delete this category !"
+      else
+        @category.destroy
+        format.html do
+          redirect_to admin_categories_path,
+           success: t("page.admin.categories.delete.success")
+        end
+        format.json {head :nocontent}
+
       end
-      format.json {head :nocontent}
       format.js
     end
   end

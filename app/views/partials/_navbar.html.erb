@@ -31,7 +31,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <%=current_user.name%> <b class="caret"></b>
         </a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" style="background:#5a94f4">
           <li><%= link_to t("userLink.profile"), current_user %></li>
           <li><%= link_to t("userLink.settings"), edit_user_path(current_user) %></li>
           <li class="divider"></li>

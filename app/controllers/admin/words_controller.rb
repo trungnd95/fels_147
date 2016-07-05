@@ -3,7 +3,7 @@ class Admin::WordsController < ApplicationController
   before_action :check_admin
   before_action :load_word, except: [:index, :create, :new]
   before_action :load_all_categories, except: :destroy
-  before_action :authorize_destroy, only: :destroy
+
   def index
     @words = Word.includes(:category).paginate page: params[:page],
       per_page: Settings.per_page
@@ -15,24 +15,43 @@ class Admin::WordsController < ApplicationController
 
   def new
     @word = Word.new
-    @word.word_answers.new
+    2.times.each{@word.word_answers.new}
   end
 
   def create
     @word = Word.new word_params
-    respond_to do |format|
-      if @word.save
-        format.html do
-          flash[:success] = t "page.admin.words.add.success"
-          redirect_to admin_words_path
+    @word_answers = word_params[:word_answers_attributes]
+    flag = false;
+    if @word_answers.nil?
+      flash[:danger] = "Word answer can not be blank !!!"
+      render action: :new
+    else
+      @word_answers.each do |answer|
+        if answer[1][:is_correct].to_i == 1
+          flag = true; break
         end
-        format.json{render @word, status: :ok}
+      end
+      if flag
+        respond_to do |format|
+          if @word.save
+            format.html do
+              flash[:success] = t "page.admin.words.add.success"
+              redirect_to admin_words_path
+            end
+            format.json{render @word, status: :ok}
+          else
+            format.html do
+              # flash[:warning] = @word.errors.full_messages
+              # redirect_to :back
+              flash[:danger] = t "page.admin.words.add.danger"
+              render action: :new
+            end
+            format.json{render json: @word.errors, status: :unprocessable_entity}
+          end
+        end
       else
-        format.html do
-          flash[:danger] = t "page.admin.words.add.danger"
-          redirect_to action: :new
-        end
-        format.json{render json: @word.errors, status: :unprocessable_entity}
+        flash[:danger] = "Let choose one answer is correct !!!"
+        render action: :new
       end
     end
   end
@@ -51,7 +70,7 @@ class Admin::WordsController < ApplicationController
       else
         format.html do
           flash[:danger] = t "page.admin.words.edit.danger"
-          redirect_to :back
+          render action: :edit
         end
         format.json{render @word.errors, status: :unprocessable_entity}
       end
@@ -59,13 +78,17 @@ class Admin::WordsController < ApplicationController
   end
 
   def destroy
-    @word.destroy
     respond_to do |format|
-      format.html do
-        flash[:success] = t "page.admin.words.delete.success"
-        redirect_to admin_categories_path
+      if @word.word_lessons.size > 0
+        @message = t "page.admin.words.delete.warning"
+      else
+        @word.destroy
+        format.html do
+          flash[:success] = t "page.admin.words.delete.success"
+          redirect_to admin_categories_path
+        end
+        format.json{head :nocontent}
       end
-      format.json{head :nocontent}
       format.js
     end
   end
@@ -77,13 +100,6 @@ class Admin::WordsController < ApplicationController
 
   def load_all_categories
     @categories = Category.all
-  end
-
-  def authorize_destroy
-    if @word.word_lessons.size > 0
-      flash[:warning] = t "page.admin.words.delete.warning"
-      redirect_to :back
-    end
   end
 
   def word_params

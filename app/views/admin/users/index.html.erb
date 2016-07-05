@@ -7,7 +7,7 @@
 <% end %>
 
 <div class="admin_users">
-  <table class="users table table-hover table-bordered">
+  <table class="users table table-hover table-bordered" id="admin_users_m">
     <thead>
       <tr class="info">
         <th><%= t "page.admin.users.table.th.stt" %></th>
@@ -15,16 +15,23 @@
         <th><%= t "page.admin.users.table.th.email" %></th>
         <th><%= t "page.admin.users.table.th.number_of_lessons" %></th>
         <th><%= t "page.admin.users.table.th.number_of_categories" %></th>
+        <th><%= t "page.admin.action.delete" %></th>
       </tr>
     </thead>
     <tbody>
       <% @users.each_with_index do |user, index| %>
-        <tr>
-          <td><%= index %></td>
+        <tr id="user_<%= user.id %>">
+          <td class="text-center"><%= index + 1 %></td>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
-          <td><%= user.lessons.count %></td>
-          <td><%= user.categories.distinct.count %></td>
+          <td class="text-center"><%= user.lessons.count %></td>
+          <td class="text-center"><%= user.categories.distinct.count %></td>
+          <td>
+            <%= link_to  [:admin,user], method: :delete, remote: true, class: "btn btn-danger" do %>
+              <i class="fa fa-times-circle" aria-hidden="true"></i>
+              <%= t "page.admin.action.delete" %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

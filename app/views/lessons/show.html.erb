@@ -1,31 +1,53 @@
-<% provide :title, t("category.lesson.start") %>
-<div class="row">
-  <aside class="col-md-4">
-    <section >
-      <h1>
-        <%= @lesson.category.name %>
-      </h1>
-    </section>
-  </aside>
-</div>
+<%= content_for :title do %>
+  <%= t "page.front-end.lessons.title" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <% if @lesson.is_completed.present? %>
+    <%= t "page.front-end.lessons.result.page_title" %>
+  <% else %>
+    <%= t "page.front-end.lessons.do.page_title" %>
+  <% end %>
+  <%= @lesson.id %>
+<% end %>
+
 <div class="row">
   <section>
     <% if @lesson.is_completed.present? %>
       <%= t "category.lessons.score" %>
       <%= @lesson.word_lessons.is_corrects.count %>/
-      <%= @lesson.words.count %>
+      <%= @lesson.words.count %><br/><br/>
+      <% if(@lesson.word_lessons.is_corrects.count.to_f/@lesson.words.count)  > 0.7 %>
+        <span class="alert alert-success">
+          <%= t "page.front-end.lessons.result.good" %>
+        </span>
+      <% else %>
+        <span class="alert alert-danger">
+          <%= t "page.front-end.lessons.result.bad" %>
+        </span>
+      <% end %>
       <%= render "result" %>
     <% else %>
       <%= form_for @lesson do |f| %>
         <%= f.hidden_field :is_completed, value: true %>
         <%= f.fields_for :word_lessons do |build| %>
-          <div class="panel panel-default col-md-12">
-            <label><%= build.object.word.native_word %></label>
+          <div class="panel panel-default col-md-6">
+            <span class="label label-default label-lg">
+              <%= t "page.front-end.lessons.do.question_num"%>
+              <%= build.index + 1 %>
+            </span><br/><br/>
+            <label>
+              <%= t "page.front-end.lessons.do.question_detail" %>
+              <span class="text-primary" style="text-decoration: underline">
+                <%= build.object.word.native_word %>
+              </span>
+              <%= t "page.front-end.lessons.do.question_mean" %>
+            </label>
             <div>
-              <div>
+              <div class="answers">
                 <% build.object.word.word_answers.each do |answer| %>
                   <%= build.radio_button :word_answer_id, answer.id %>
-                  <%= answer.content %>
+                  <span class="each_answer"><%= answer.content %></span>
                   <%= build.hidden_field :word_id %>
                   <br/>
                 <% end %>
@@ -34,7 +56,7 @@
           </div>
         <% end %>
         <div class="col-md-2">
-          <%= f.submit t("submit"), class: "btn btn-primary" %>
+          <%= f.submit t("submit"), class: "btn btn-primary", style: "width: 100px" %>
         </div>
       <% end %>
     <% end %>

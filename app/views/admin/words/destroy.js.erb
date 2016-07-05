@@ -1,1 +1,5 @@
-$('#<%= dom_id(@word) %>').effect('highlight').fadeOut();
+<% if @word.word_lessons.size > 0 %>
+  alert('<%= j @message %>')
+<% else %>
+  $('#<%= dom_id(@word) %>').effect('highlight').fadeOut();
+<% end %>

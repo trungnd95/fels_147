@@ -10,7 +10,7 @@
   <% end %>
 <% end %>
 <div class="admin_categories">
-  <table class="words table table-hover table-bordered">
+  <table class="words table table-hover table-bordered" id="admin_words_m">
     <thead>
       <tr class="info">
         <th><%= t "page.admin.words.table.th.stt" %></th>
@@ -28,5 +28,4 @@
       <% end %>
     </tbody>
   </table>
-  <%= will_paginate @words %>
 </div>

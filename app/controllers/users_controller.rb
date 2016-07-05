@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       flash[:success] = t "message.success.create_user"
-      redirect_to @user
+      redirect_to login_path
     else
       render :new
     end
@@ -39,12 +39,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
   def user_params
-    params.require(:user).permit :name, :email, :avatar
+    params.require(:user).permit :name, :email, :avatar, :password,
+     :password_confirmation
   end
 
   def load_user

@@ -1,4 +1,24 @@
 <%= form_for [:admin, @word] do |f| %>
+  <% if @word.errors.full_messages.size > 0 %>
+    <div class="error_alert">
+      <div class="alert alert-dismissable">
+        <button type="button" class="close delete-notify-student" data-dismiss="alert" aria-hidden="true">×</button>
+        <input type="hidden" name="" value="116">
+        <input type="hidden" name="" value="12">
+        <li class="notify-item seen" style="list-style:none">
+          <% @word.errors.full_messages.each do |msg| %>
+            <p class="text-danger"><%= msg %></p>
+          <% end %>
+        </li>
+      </div>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :category_id %>
+    <%= f.select :category_id,
+      @categories.collect {|category| [category.name, category.id ]},
+      {}, {class: "form-control"} %>
+  </div>
   <div class="field">
     <%= f.label :native_word %>
     <%= f.text_field :native_word, class: "form-control" %>
@@ -6,12 +26,6 @@
   <div class="field">
     <%= f.label :meaning %>
     <%= f.text_field :meaning, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :category_id %>
-    <%= f.select :category_id,
-      @categories.collect {|category| [category.name, category.id ]},
-      {}, {class: "form-control"} %>
   </div>
   <div id ="answer_field">
     <%= f.fields_for :word_answers do |answer_builder| %>

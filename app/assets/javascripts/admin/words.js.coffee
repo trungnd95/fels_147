@@ -1,7 +1,7 @@
 jQuery ->
   $('.add_fields').addClass('btn btn-primary')
   $('.add_fields').css('margin-bottom':'20px','float':'right')
-  $('form').on 'click', '.add_fields', (event) ->
+  $('form.new_word').on 'click', '.add_fields', (event) ->
     time = new Date().getTime()
     regexp = new RegExp($(this).data('id'), 'g')
     console.log()
@@ -9,4 +9,4 @@ jQuery ->
     event.preventDefault()
   $('form').on 'click', '.remove_fields', (event) ->
     $(this).prev('input[type=hidden]').val(true)
-    $(this).parent().effect('highlight').fadeOut()
+    $(this).parent().parent().parent().effect('highlight').remove()

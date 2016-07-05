@@ -12,12 +12,13 @@ class User < ActiveRecord::Base
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :lessons
   has_many :categories, through: :lessons
-  has_many :activities
+  has_many :activities, dependent: :destroy
 
   before_create :confirmation_token
   before_save :downcase_email
 
-  validates :name, presence: true, length: {maximum: 50}
+  validates :name, presence: true, length: {maximum: 50},
+   uniqueness: {case_sensitive: true}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 255},
     format: {with: VALID_EMAIL_REGEX},
