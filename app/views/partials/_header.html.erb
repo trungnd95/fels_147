@@ -1,8 +1,8 @@
 <header class="header_template">
   <nav class="navbar navbar-default nav-title" style="background-color:#fff;">
-    <a class="navbar-brand" href="">
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag('logo.png') %>
-    </a>
+    <% end %>
     <div class="brand">
       <h1 class="text-center"><%= t "page.master.header.title" %></h1>
     </div>

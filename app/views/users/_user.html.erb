@@ -1,4 +1,4 @@
-<li>
-  <%= image_tag user.avatar.url if @user.avatar? %>
+<div class="alert alert-dismissable">
+  <%= image_tag user.avatar.url, size: Settings.image.medium if @user.avatar? %>
   <%= link_to user.name, user %>
-</li>
+</div>

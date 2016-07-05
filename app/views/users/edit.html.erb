@@ -1,23 +1,23 @@
-<% provide(:title, t("userLink.edit")) %>
-<h1><% t "userLink.updateProfile" %></h1>
+<%= content_for :title do %>
+  <%= t "page.front-end.users.edit.title" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.front-end.users.edit.page_title" %>
+<% end %>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user, html: { multipart: true }) do |f| %>
+    <%= form_for(@user, html: { multipart: true, class: "form_edit_user" }) do |f| %>
       <%= render "shared/error_messages", object: f.object %>
-
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control" %>
       <%= f.label :email %>
       <%= f.email_field :email, class: "form-control" %>
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "form-control" %>
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
-      <%= f.submit t "userLink.saveChange", class: "btn btn-primary" %>
-      <span class="picture">
-        <%= f.file_field :avatar %>
-      </span>
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
+      <button type="button" onclick = "window.history.back()" class="btn btn-default cancel_button"><%= t "page.front-end.action.cancel" %></button>
+      <%= f.submit t("userLink.saveChange"), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

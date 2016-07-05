@@ -1,8 +1,11 @@
-<%=content_for :title do%>
-  <%= t "userLink.create"%>
-<%end%>
-<% provide :title, t("userLink.signup") %>
-<h1><%= t "userLink.signup" %></h1>
+<%= content_for :title do %>
+  <%= t "page.front-end.signup.signup" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.front-end.signup.signup" %>
+<% end %>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
@@ -15,7 +18,12 @@
       <%= f.password_field :password, class: "form-control" %>
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
+      <button type="reset" class="btn btn-warning">
+        <%= t "page.front-end.action.reset" %>
+      </button>
       <%= f.submit t("userLink.create"), class: "btn btn-primary" %>
+      <hr>
+      <p><%= link_to t("page.front-end.signup.login"), login_path %></p>
     <% end %>
   </div>
 </div>

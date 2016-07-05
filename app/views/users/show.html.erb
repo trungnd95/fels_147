@@ -6,26 +6,15 @@
   <%= t "page.front-end.users.page_title" %>
 <% end %>
 <div class="row">
-  <div class="user_profile col-md-4">
-    <%= render "follow_form" if logged_in? %>
-    <section class="stats">
-      <%= render "shared/stats" %>
-    </section>
-    <%= image_tag @user.avatar.url, size: Settings.image.size if @user.avatar? %>
-    <p>
-      <strong><%= t "user_attr.name" %></strong>
-      <%= @user.name %>
-    </p>
-    <p>
-      <strong><%= t "user_attr.email" %></strong>
-      <%= @user.email %>
-    </p>
-    <%= link_to t("userLink.edit"), edit_user_path(@user) %>
-    <%= link_to t("userLink.back"), users_path %>
-  </div>
+  <%= render "user_profile" %>
   <div class = "col-md-8">
-    <ul class="user_process">
-      <%= render @activities %>
-    </ul>
+    <% if @activities.size > 0 %>
+      <ul class="user_process">
+        <%= render @activities %>
+      </ul>
+      <%=  will_paginate @activities %>
+    <% else%>
+      <%= t "page.front-end.users.no_content.activity" %>
+    <% end %>
   </div>
 </div>

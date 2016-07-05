@@ -1,8 +1,10 @@
 <div class="space navbar-collapse">
   <ul class="breadcrumbs nav navbar-nav">
     <li class="active">
-      <i class="fa fa-home" aria-hidden="true"></i>
-      <%= link_to t("page.master.menu.home"),"#"%>
+      <%= link_to root_path do %>
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <%= t("page.master.menu.home") %>
+      <% end%>
     </li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
@@ -12,14 +14,19 @@
         <%= t "page.master.menu.courses" %>
       <% end %>
     </li>
-    <li class="feedback">
-      <%= link_to('#') do %>
-        <i class="fa fa-comment" style="margin-right: 5px"></i>
-        <%= t "page.master.menu.about" %>
+    <li class="words">
+      <%= link_to(words_path) do %>
+        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+        <%= t "page.master.menu.words" %>
       <% end %>
     </li>
     <% if logged_in? %>
-      <li><%= link_to t("userLink.list"), users_path %></li>
+      <li>
+        <%= link_to(users_path) do %>
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <%= t("userLink.list") %>
+        <% end %>
+      </li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <%=current_user.name%> <b class="caret"></b>
@@ -35,12 +42,17 @@
       </li>
     <% else %>
       <li class="signup">
-        <%= link_to('#') do %>
+        <%= link_to new_user_path do %>
           <i class="fa fa-registered" aria-hidden="true"></i>
-          <%= link_to t("page.master.menu.signup"), new_user_path %>
+          <%= t("page.master.menu.signup") %>
         <% end %>
       </li>
-      <li><%= link_to t("userLink.login"), login_path %></li>
+      <li>
+        <%= link_to login_path do %>
+          <i class="fa fa-sign-in" aria-hidden="true"></i>
+          <%= t("userLink.login") %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 </div>

@@ -24,7 +24,7 @@ en:
     errorEmailPassword: "Invalid email/password combination"
     errors: "Some thing invalid ! Add category failed !!!"
   session:
-    remember: " Remember me on this computer"
+    remember: " Remember"
   user_attr:
     name: "Name"
     email: "Email"
@@ -36,7 +36,7 @@ en:
     updated: "Profile updated"
     login: "Log in"
     zero: "have no user"
-    list: "Listing User"
+    list: "Users"
     show: "Show"
     newUser: "New User"
     create: "Create my account"
@@ -54,6 +54,13 @@ en:
     plsLogin: "Please log in"
   page:
     front-end:
+      action:
+        reset: "Reset"
+        cancel: "Cancel"
+      signup:
+        signup: "Sign up"
+        login: "Sign in ?"
+      signin: "Sign in"
       activities:
         learn: "learned lesson"
         word: "word"
@@ -74,9 +81,22 @@ en:
           meaning: "Meaning"
           category: "Category"
           choose_category: "Choose Category"
+      categories:
+        list: "All Courses"
+        detail: "Detail Category"
+        no_content: "No lesson had been learned !!!"
       users:
+          list: "All Users"
+          no_content:
+            relationship:  "No user was found!!!"
+            activity: "No activity was found!!!"
+          edit:
+            title: "Edit User"
+            page_title: "Edit User"
           title: "User"
           page_title: "User Process"
+          relationship:
+            title: "User relationship"
     admin:
       admin: "Admin"
       action:
@@ -90,6 +110,7 @@ en:
       header:
         title: "Admin Panel"
       menu:
+        logout: "Logout"
         users: "Manage Users"
         category:
           index: "Categories"
@@ -158,6 +179,7 @@ en:
         title: "Fr E-learning System"
       menu:
         home: "Home"
+        words: "Words"
         courses: "Courses"
         about: "About"
         signup: "Sign up"
@@ -166,5 +188,6 @@ en:
         content: "Framgia@2016|Design by TT Team"
     home:
       title: "Home page"
+      page_title: "Welcome to Framgia Elearning System | 2016"
     about:
       title: "About page"
