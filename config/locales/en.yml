@@ -53,6 +53,17 @@ en:
     plsLogin: "Please log in"
   page:
     front-end:
+      activities:
+        learn: "learned lesson"
+        word: "word"
+        learning: "learning lesson"
+        category: "in category"
+        follow: "follow"
+        unfollow: "unfollow"
+        ago: "ago"
+        activity_type:
+          following: "following"
+          learned: "learned"
       words:
         index:
           title: "List Words"
@@ -62,6 +73,9 @@ en:
           meaning: "Meaning"
           category: "Category"
           choose_category: "Choose Category"
+      users:
+          title: "User"
+          page_title: "User Process"
     admin:
       admin: "Admin"
       action:
@@ -138,7 +152,6 @@ en:
         delete:
           success: "You was successfully deleted !!!"
           warning: "Word was in lessons. Not permit to destroy it !!"
-  category page:
     master:
       header:
         title: "Fr E-learning System"

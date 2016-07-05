@@ -1,7 +1,8 @@
 class Lesson < ActiveRecord::Base
+  include CreateActivity
+
   belongs_to :category
   belongs_to :user
-
   has_many :word_lessons, dependent: :destroy
   has_many :words, through: :word_lessons
   has_many :word_answers, through: :word_lessons
@@ -30,5 +31,16 @@ class Lesson < ActiveRecord::Base
   def word_min
     errors.add :create,
       I18n.t("category.lesson.create_fail") if self.words.size < Settings.number_words_min
+  end
+  after_update :create_activity_learned
+  before_update :create_activity_learning
+
+  private
+  def create_activity_learned
+    create_activity self.id, Settings.activity_type.learned, self.user.id
+  end
+
+  def create_activity_learning
+    create_activity self.id, Settings.activity_type.learning, self.user.id
   end
 end
