@@ -4,7 +4,6 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "4.2.6"
 # Use sqlite3 as the database for Active Record
-gem "sqlite3"
 gem "bcrypt-ruby", "3.1.2"
 gem "will_paginate"
 gem "bootstrap-will_paginate", "0.0.10"
@@ -47,6 +46,15 @@ gem "sdoc", "~> 0.4.0", group: :doc
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug"
+end
+
+group :development, :test do
+  gem "sqlite3"
+end
+
+group :production do
+  gem "pg"
+  gem "rails_12factor"
 end
 
 group :development do
