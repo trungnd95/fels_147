@@ -1,6 +1,6 @@
 en:
   title_question: "Choose the correct answer"
-  submit: "Submit"
+  submit: "Finish"
   category:
     name: "Name of category"
     desc: "Description"
@@ -10,7 +10,7 @@ en:
       create_success: "Create lesson success"
       create_fail: "Create lesson fail"
       start: "Start"
-      create: "Create"
+      create: "Create New Lesson"
       lesson_list: "Listing Lessons"
       score: "Score"
       save_success: "Lesson saved"
@@ -72,6 +72,20 @@ en:
         activity_type:
           following: "following"
           learned: "learned"
+      lessons:
+        title: "Word Lesson"
+        result:
+          page_title: "Result Of Lesson "
+          true: "You are right this lesson"
+          false: "You are wrong this lesson"
+          good: "Good Job. Keep ahead!!"
+          bad: "It seem you have not the best of preparation for this lesson.
+                Word hard. And try again!"
+        do:
+          page_title: "Do Lesson"
+          question_num:  "Question "
+          question_detail: "What does "
+          question_mean: "mean ?"
       words:
         index:
           title: "List Words"
@@ -83,7 +97,9 @@ en:
           choose_category: "Choose Category"
       categories:
         list: "All Courses"
-        detail: "Detail Category"
+        detail:
+          title: "Detail Category"
+          note: "(If lesson had been finished, it has green. Otherwise red)"
         no_content: "No lesson had been learned !!!"
       users:
           list: "All Users"

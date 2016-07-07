@@ -30,7 +30,7 @@ class Admin::WordsController < ApplicationController
       else
         format.html do
           flash[:danger] = t "page.admin.words.add.danger"
-          redirect_to action: :new
+          render :new
         end
         format.json{render json: @word.errors, status: :unprocessable_entity}
       end
@@ -51,7 +51,7 @@ class Admin::WordsController < ApplicationController
       else
         format.html do
           flash[:danger] = t "page.admin.words.edit.danger"
-          redirect_to :back
+          render :edit
         end
         format.json{render @word.errors, status: :unprocessable_entity}
       end

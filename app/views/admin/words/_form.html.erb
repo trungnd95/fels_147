@@ -1,4 +1,7 @@
 <%= form_for [:admin, @word] do |f| %>
+  <% @word.errors.full_messages.each do |msg| %>
+    <p class="text-danger"><%= msg %></p>
+  <% end %>
   <div class="field">
     <%= f.label :native_word %>
     <%= f.text_field :native_word, class: "form-control" %>
@@ -17,6 +20,7 @@
     <%= f.fields_for :word_answers do |answer_builder| %>
       <p>
         <%= render "word_answer_fields", f: answer_builder %>
+        <%= render "shared/error_messages", object: f.object %>
       </p>
     <% end %>
     <%= link_to_add_fields t("page.admin.words.add_answer"), f, :word_answers %>

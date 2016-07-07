@@ -13,10 +13,12 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
+ *= require common
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-// === Header style ====//
+
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -207,4 +209,9 @@ form.new_user {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.24), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
     border-radius: 2px;
     padding: 1em;
+}
+
+.lesson_learned {
+  display: inline-block;
+  width: 80px;
 }

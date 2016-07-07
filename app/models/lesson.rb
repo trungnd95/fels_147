@@ -37,8 +37,6 @@ class Lesson < ActiveRecord::Base
       I18n.t("category.lesson.create_fail") if self.words.size < Settings.number_words_min
   end
 
-
-  private
   def create_activity_learned
     create_activity self.id, Settings.activity_type.learned, self.user.id
   end

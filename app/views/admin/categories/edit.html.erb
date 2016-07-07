@@ -19,6 +19,7 @@
         <%= f.label :description, class: "label-control" %>
         <%= f.text_area :description, class: "form-control description_category" %>
       </div>
+      <button type="button" class="btn btn-default cancel_button" onclick="window.history.back()"><%= t "page.admin.action.cancel"%></button>
       <%= f.submit t("page.admin.action.edit"), class: "btn btn-primary" %>
     <% end %>
   </div>

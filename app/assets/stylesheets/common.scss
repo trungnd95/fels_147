@@ -3,6 +3,10 @@ i {
   margin-right : 5px;
 }
 
+.alert {
+  display: block;
+}
+
 .header_template {
   padding-bottom : 20px;
  nav {
@@ -80,6 +84,13 @@ form.login_form {
 .user_information {
   margin-top: 10px;
   margin-bottom: 15px;
+}
+
+.answers {
+  padding-left: 10px;
+  .each_answer {
+    margin-left:10px;
+  }
 }
 //=== Footer style == //
 footer {

@@ -1,10 +1,11 @@
 class WordsController < ApplicationController
-  before_action :logged_in_user, :all_categories_choosed, :load_lesson_words_id,
+  before_action :logged_in_user, :all_categories_choosed,
     :choose_category, only: :index
 
   def index
     respond_to do |format|
       if params.has_key?(:word)
+        load_lesson_words_id
         all_words_if_params
         format.html
         format.json do
@@ -27,24 +28,23 @@ class WordsController < ApplicationController
   private
   def all_categories_choosed
     @categories = Category.eager_load(:users).load_users_involve(current_user)
-      .order("categories.created_at DESC").paginate page: params[:page],
-      per_page: Settings.per_page
+      .order("categories.created_at DESC").all
   end
 
   def all_words
     @words = Word.includes(:category)
-      .current_user_words(@categories.each{|category| category.id})
+      .current_user_words(@categories.collect{|category| category.id})
+      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   def all_words_if_params
     @words = Word.includes(:category)
       .current_user_words(eval params[:word][:category_id])
       .send(params[:word][:word_type], @ids)
-      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   def load_lesson_words_id
-    @ids = WordLesson.ids.count == 0 ? -1 : WordLesson.ids
+    @ids = WordLesson.ids.count == 0 ? -1 : WordLesson.all.collect{|lesson| lesson.word_id}
   end
 
   def choose_category

@@ -1,4 +1,4 @@
-jQuery ->
+$(document).on 'ready page:change', ->
   $('.add_fields').addClass('btn btn-primary')
   $('.add_fields').css('margin-bottom':'20px','float':'right')
   $('form').on 'click', '.add_fields', (event) ->

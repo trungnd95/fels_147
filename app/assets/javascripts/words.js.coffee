@@ -1,4 +1,4 @@
-$(document).ready ->
+$(document).on 'ready page:change', ->
   $('#category_id').change ->
     url = $('#form-filter-words').attr('action')
     category_id = $(this). val()
@@ -11,6 +11,7 @@ $(document).ready ->
       cache: false
       success: (result) ->
         $('.words-rows').html(result.content)
+        $('div.pagination').addClass('hidden')
       error: (err) ->
          alert(err)
   $('#form-filter-words').find("input[name='word_type']").on 'change', ->
@@ -27,3 +28,4 @@ $(document).ready ->
       cache: false
       success: (result) ->
         $('.words-rows').html(result.content)
+        $('div.pagination').addClass('hidden')

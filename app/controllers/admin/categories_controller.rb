@@ -44,7 +44,7 @@ class Admin::CategoriesController < ApplicationController
         end
       else
         format.html do
-          redirect_to :back,
+          render :edit,
           danger: t("page.admin.categories.edit.danger")
         end
         format.json do
